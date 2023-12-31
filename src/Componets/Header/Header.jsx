@@ -1,15 +1,19 @@
 import logo from '../../assets/logo.png';
 import moment from 'moment';
 import Marquee from "react-fast-marquee";
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import user from '../../assets/user.png';
+import './Header.css';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import Container from 'react-bootstrap/Container';
 
 const Header = () => {
     return (
         <header className='pt-4 pb-5'>
             <div className='text-center'>
-                <div>
-                    <img src={logo} alt="" />
+                <div className='px-2 mx-auto logo'>
+                    <Navbar.Brand href="/"><img className='w-100' src={logo} alt="" /></Navbar.Brand>
                 </div>
                 <p className="text-secondary fs-6 fw-normal font-family-Poppins  m-0 px-3 py-2">Journalism Without Fear or Favour</p>
                 <div className='m-0 px-3 py-2 text-secondary fs-6 fw-medium font-family-Poppins'>
@@ -24,22 +28,31 @@ const Header = () => {
                     <h4 className='text-dark fs-6 fw-semibold font-family-Poppins m-0 px-3 py-2'>Match Highlights: Germany vs Spain — as it happened   !   Match Highlights: Germany vs Spain as...</h4>
                 </Marquee>
             </div>
-            <nav className='d-flex align-items-center justify-content-between'>
-                <div></div>
-                <ul className='d-flex ps-0 m-0'>
-                    <li className='list-group-item'><Link className='text-decoration-none text-secondary fs-6 fw-normal font-family-Poppins m-0 px-3 py-2' to="/">Home</Link></li>
-                    <li className='list-group-item'><Link className='text-decoration-none text-secondary fs-6 fw-normal font-family-Poppins m-0 px-3 py-2' to="/about">About</Link></li>
-                    <li className='list-group-item'><Link className='text-decoration-none text-secondary fs-6 fw-normal font-family-Poppins m-0 px-3 py-2' to="/career">Career</Link></li>
-                </ul>
-                <div className='d-flex align-items-center gap-2'>
-                    <div className='btn p-0' style={{width : '41px'}}>
-                        <img className='w-100' src={user} alt="" />
+            <Navbar expand="lg" className="">
+                <Container fluid>
+                    <Navbar.Toggle aria-controls="navbarScroll" />
+                    <Navbar.Collapse className='justify-content-center' id="navbarScroll">
+                        <div></div>
+                    <Nav
+                        className="my-2 my-lg-0 navActive"
+                        style={{ maxHeight: '100px' }}
+                        navbarScroll
+                    >
+                        <NavLink className={`text-decoration-none text-secondary  fs-6 fw-normal font-family-Poppins m-0 px-3 py-2 ${(isActive, isPending) => isPending ? 'pending' : isActive ? 'active' : ''}`} to="/">Home</NavLink>
+                        <NavLink className='text-decoration-none text-secondary fs-6 fw-normal font-family-Poppins m-0 px-3 py-2' to="/about">About</NavLink>
+                        <NavLink className='text-decoration-none text-secondary fs-6 fw-normal font-family-Poppins m-0 px-3 py-2' to="/career">Career</NavLink>
+                    </Nav>
+                    </Navbar.Collapse>
+                    <div className='d-flex align-items-center gap-2'>
+                        <div className='btn p-0' style={{width : '41px'}}>
+                            <img className='w-100' src={user} alt="" />
+                        </div>
+                        <div>
+                            <button className='bg-dark text-white fs-6 fw-semibold font-family-Poppins m-0 px-3 py-2 btn'>Login</button>
+                        </div>
                     </div>
-                    <div>
-                        <button className='bg-dark text-white fs-6 fw-semibold font-family-Poppins m-0 px-3 py-2 btn'>Login</button>
-                    </div>
-                </div>
-            </nav>
+                </Container>
+            </Navbar>
         </header>
     );
 };

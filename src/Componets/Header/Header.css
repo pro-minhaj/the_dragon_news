@@ -1,0 +1,18 @@
+.logo{
+    width: 40%;
+}
+.navActive a.active {
+    color: rgb(38, 38, 202) !important;
+    font-weight: 600 !important;
+}
+
+@media (max-width: 992px){
+    .logo{
+        width: 60%;
+    }
+}
+@media (max-width: 576px){
+    .logo{
+        width: 80%;
+    }
+}
