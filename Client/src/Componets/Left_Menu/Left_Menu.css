@@ -1,0 +1,10 @@
+.active:focus{
+    background-color: #E7E7E7;
+    border-radius: 5px;
+    border: 1px solid #E7E7E7;
+    color: #403F3F;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 30px;
+}
