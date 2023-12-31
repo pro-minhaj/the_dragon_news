@@ -10,7 +10,7 @@ import Container from 'react-bootstrap/Container';
 
 const Header = () => {
     return (
-        <header className='pt-4 pb-5'>
+        <header className='pt-4 pb-4'>
             <div className='text-center'>
                 <div className='px-2 mx-auto logo'>
                     <Navbar.Brand href="/"><img className='w-100' src={logo} alt="" /></Navbar.Brand>
@@ -22,7 +22,7 @@ const Header = () => {
                     }
                 </div>
             </div>
-            <div className='bg-light d-flex p-3 rounded gap-4 my-4'>
+            <div className='bg-light d-flex p-3 rounded gap-4 my-3'>
                 <button className='text-white fs-6 fw-medium font-family-Poppins m-0 px-3 py-2 bg-danger btn'>Latest</button>
                 <Marquee pauseOnHover={true} speed={100}>
                     <h4 className='text-dark fs-6 fw-semibold font-family-Poppins m-0 px-3 py-2'>Match Highlights: Germany vs Spain — as it happened   !   Match Highlights: Germany vs Spain as...</h4>
