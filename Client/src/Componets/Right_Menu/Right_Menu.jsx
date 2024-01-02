@@ -8,7 +8,7 @@ import './Right_Menu.css';
 
 const Right_Menu = () => {
     return (
-        <div>
+        <div className='sticky-top'>
             <div className='p-2'>
                 <h2 className='fw-bold mb-4 font-family-Poppins fs-4'>Login With</h2>
                 <div className='d-flex flex-column gap-2'>

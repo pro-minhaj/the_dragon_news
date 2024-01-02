@@ -16,7 +16,7 @@ const Left_Menu = () => {
     }, [])
 
     return (
-        <div>
+        <div className="sticky-top">
             <h2 className="text-dark fs-5 fw-semibold font-family-Poppins m-0 px-3 py-2">All Category</h2>
             <div className="d-flex flex-column gap-3 my-3 ps-4">
                 {

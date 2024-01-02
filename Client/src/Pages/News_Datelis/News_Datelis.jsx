@@ -19,7 +19,7 @@ const News_Datelis = () => {
                 <Col md={9}>
                     <div className='bg-white rounded-1 border border-1 p-4'>
                         <div>
-                            <img className='img-fluid' src={image_url} alt="" />
+                            <img className='img-fluid w-100' src={image_url} alt="" />
                         </div>
                         <h2 className='<p class="text-dark fs-4 fw-bold font-family-Poppins m-0 py-3'>{title}</h2>
                         <div className='mb-3'>
