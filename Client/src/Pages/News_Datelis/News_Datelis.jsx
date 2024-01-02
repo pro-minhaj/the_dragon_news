@@ -7,13 +7,15 @@ import editorsInsight1 from '../../assets/editorsInsight1.png';
 import editorsInsight2 from '../../assets/editorsInsight2.png';
 import editorsInsight3 from '../../assets/editorsInsight3.png';
 import { CiCalendar } from "react-icons/ci";
+import Header_Top from '../../Componets/Header_Top/Header_Top';
 
 const News_Datelis = () => {
     const news = useLoaderData();
     const {title, image_url, details} = news;
 
     return (
-        <div>
+        <div className='container mx-auto'>
+            <Header_Top></Header_Top>
             <h2 className='text-dark fs-6 fw-semibold font-family-Poppins m-0 py-2'>Dragon News</h2>
             <Row className='g-4 mt-0'>
                 <Col md={9}>

@@ -10,6 +10,7 @@ import { Outlet } from "react-router-dom";
 const Home = () => {
     return (
         <div>
+            <Header></Header>
             <Container>
                 <Row className="g-4">
                     <Col md={3}>

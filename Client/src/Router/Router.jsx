@@ -7,6 +7,8 @@ import About from "../Pages/About/About";
 import Career from "../Pages/Career/Career";
 import News_Datelis from "../Pages/News_Datelis/News_Datelis";
 import Main_Content from "../Componets/Main_Content/Main_Content";
+import Login from "../Pages/Login/Login";
+import Register from "../Pages/Register/Register";
 
 const router = createBrowserRouter([
   {
@@ -47,6 +49,14 @@ const router = createBrowserRouter([
         {
             path: 'career',
             element: <Career></Career>
+        },
+        {
+          path: 'login',
+          element: <Login></Login>
+        },
+        {
+          path: 'register',
+          element: <Register></Register>
         },
         {
             path: '/*',
