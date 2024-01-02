@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import Navber from '../../Componets/Navber/Navber';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './Login.css';
 import { userContext } from '../../Auth_Context/Auth_Context';
 import toast from 'react-hot-toast';
@@ -9,6 +9,8 @@ import toast from 'react-hot-toast';
 const Login = () => {
     const {singIn} = useContext(userContext);
     const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
 
     // Toast
     const succuss = (success) => toast.success(success);
@@ -23,8 +25,8 @@ const Login = () => {
         const password = form.password.value;
 
         singIn(email, password)
-        .then(result => {
-            navigate('/')
+        .then(() => {
+            navigate(from)
             succuss('LogIn SuccessFull')
             toast.dismiss(loadings)
         })

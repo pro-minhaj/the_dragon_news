@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import Navber from '../../Componets/Navber/Navber';
 import { Link, useNavigate } from 'react-router-dom';
@@ -9,6 +9,7 @@ import toast from 'react-hot-toast';
 const Register = () => {
     const {createUser, createName, emailVerification} = useContext(userContext);
     const navigate = useNavigate();
+    const [accpet, setAccpet] = useState(false);
 
     // Toast
     const succuss = (success) => toast.success(success);
@@ -29,7 +30,7 @@ const Register = () => {
         }
         //Auth
         createUser(email, password)
-        .then(result => {
+        .then(() => {
             createName(name, photoUrl)
             toast.dismiss(loadings)
             emailVerification()
@@ -47,6 +48,11 @@ const Register = () => {
             toast.dismiss(loadings)
         })
     }
+    //Handle Check
+    const handleCheck = event => {
+        setAccpet(event.target.checked);
+    }
+
     return (
         <div className='bg-light vh-100'>
             <Container>
@@ -74,9 +80,9 @@ const Register = () => {
                             <Form.Control type="password" name='password' placeholder="Password" required />
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                            <Form.Check type="checkbox" label="Accept Term & Conditions" required />
+                            <Form.Check onClick={handleCheck} type="checkbox" label="Accept Term & Conditions" required />
                         </Form.Group>
-                        <Button variant="dark w-100 mb-4 mt-3" type="submit">
+                        <Button disabled={!accpet} variant="dark w-100 mb-4 mt-3" type="submit">
                             Register
                         </Button>
                         <p className='text-center m-0 px-3 py-2'>You Have Already Account ? <Link className='text-decoration-none text-danger' to="/login">Login</Link></p>
