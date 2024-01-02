@@ -20,7 +20,7 @@ const Left_Menu = () => {
             <h2 className="text-dark fs-5 fw-semibold font-family-Poppins m-0 px-3 py-2">All Category</h2>
             <div className="d-flex flex-column gap-3 my-3 ps-4">
                 {
-                    categories.map(categories => <span key={categories.id}><NavLink className='text-secondary fs-6 fw-medium font-family-Poppins m-0 px-3 py-2 text-decoration-none active' to={`/categories/:${categories.id}`}>{categories.name}</NavLink></span>)
+                    categories.map(categories => <span key={categories.id}><NavLink className='text-secondary fs-6 fw-medium font-family-Poppins m-0 px-3 py-2 text-decoration-none category-active' to={`/news/category/${categories.id}`}>{categories.name}</NavLink></span>)
                 }
             </div>
             <div className="d-flex flex-column gap-3">
