@@ -5,14 +5,36 @@ import qZone1 from '../../assets/qZone1.png';
 import qZone2 from '../../assets/qZone2.png';
 import qZone3 from '../../assets/qZone3.png';
 import './Right_Menu.css';
+import { useContext } from 'react';
+import { userContext } from '../../Auth_Context/Auth_Context';
+import toast from 'react-hot-toast';
 
 const Right_Menu = () => {
+    const { googleSingIn } = useContext(userContext);
+
+    // Toast
+    const succuss = (success) => toast.success(success);
+    const error = (error) => toast.error(error);
+
+    const handleGoogleSingIn = () => {
+        const loadings = toast.loading('Loading...');
+        () => loadings;
+        googleSingIn()
+        .then(() => {
+            succuss('Login SuccessFull')
+            toast.dismiss(loadings)
+        })
+        .catch(e => {
+            error(e.message.substr(10))
+            toast.dismiss(loadings)
+        })
+    }
     return (
         <div className='sticky-top'>
             <div className='p-2'>
                 <h2 className='fw-bold mb-4 font-family-Poppins fs-4'>Login With</h2>
                 <div className='d-flex flex-column gap-2'>
-                    <Button variant="outline-primary d-flex align-items-center gap-2 w-100 justify-content-center">
+                    <Button onClick={handleGoogleSingIn} variant="outline-primary d-flex align-items-center gap-2 w-100 justify-content-center">
                         <FaGoogle />
                         Login with Google
                     </Button>
@@ -27,7 +49,7 @@ const Right_Menu = () => {
                 <ListGroup className='mt-3'>
                     <ListGroup.Item className='text-secondary d-flex align-items-center gap-2 fs-6 fw-medium font-family-Poppins m-0 px-3 py-2 btn'><FaFacebookF className='bg-light text-primary' /> Facebook</ListGroup.Item>
                     <ListGroup.Item className='text-secondary d-flex align-items-center gap-2 fs-6 fw-medium font-family-Poppins m-0 px-3 py-2 btn'><FaTwitter className='bg-light text-info' /> Twitter</ListGroup.Item>
-                    <ListGroup.Item className='text-secondary d-flex align-items-center gap-2 fs-6 fw-medium font-family-Poppins m-0 px-3 py-2 btn'><FaInstagram className='bg-light text-danger'/> Instagram</ListGroup.Item>
+                    <ListGroup.Item className='text-secondary d-flex align-items-center gap-2 fs-6 fw-medium font-family-Poppins m-0 px-3 py-2 btn'><FaInstagram className='bg-light text-danger' /> Instagram</ListGroup.Item>
                 </ListGroup>
             </div>
             <div className='bg-light py-2 my-2'>

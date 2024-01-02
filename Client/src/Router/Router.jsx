@@ -9,6 +9,7 @@ import News_Datelis from "../Pages/News_Datelis/News_Datelis";
 import Main_Content from "../Componets/Main_Content/Main_Content";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
+import Privete_Route from "../Privete_Route/Privete_Route";
 
 const router = createBrowserRouter([
   {
@@ -34,7 +35,7 @@ const router = createBrowserRouter([
         },
         {
           path: 'news/details/:id',
-          element: <News_Datelis></News_Datelis>,
+          element: <Privete_Route><News_Datelis></News_Datelis></Privete_Route>,
           loader: ({params}) => fetch(`http://localhost:5000/news/${params.id}`)
         },
         {
